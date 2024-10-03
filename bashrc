@@ -2,24 +2,14 @@
 
 just the backup of my bashrc file in case i destroy my system all of a suddenly 
 
-# /etc/skel/.bashrc
-#
-# This file is sourced by all *interactive* bash shells on startup,
-# including some apparently interactive shells such as scp and rcp
-# that can't tolerate any output.  So make sure this doesn't display
-# anything or bad things will happen !
 
 
-# Test for an interactive shell.  There is no need to set anything
-# past this point for scp and rcp, and it's important to refrain from
-# outputting anything in those cases.
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return
 fi
 
 
-# Put your fun stuff here.
 
 alias localrust=". ~/.config/localrust.sh"
 
@@ -50,7 +40,6 @@ alias gb='git checkout -b'
 # View the difference.
 alias gd='git diff'
 
-##################################################################################################################################################################################################################################
 
 
 alias cpu="grep 'cpu ' /proc/stat | awk '{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}' | awk '{printf(\"%.1f\n\", \$1)}'"
@@ -77,7 +66,6 @@ function __setprompt
 	local LIGHTCYAN="\033[1;36m"
 	local NOCOLOR="\033[0m"
 
-	# Show error exit code if there is one
 	if [[ $LAST_COMMAND != 0 ]]; then
 		# PS1="\[${RED}\](\[${LIGHTRED}\]ERROR\[${RED}\])-(\[${LIGHTRED}\]Exit Code \[${WHITE}\]${LAST_COMMAND}\[${RED}\])-(\[${LIGHTRED}\]"
 		PS1="\[${DARKGRAY}\](\[${LIGHTRED}\]ERROR\[${DARKGRAY}\])-(\[${RED}\]Exit Code \[${LIGHTRED}\]${LAST_COMMAND}\[${DARKGRAY}\])-(\[${RED}\]"
